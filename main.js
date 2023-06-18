@@ -1,7 +1,13 @@
 /* AXIOS */
-axios.get("https://opentdb.com/api.php?amount=10&category=9&difficulty=easy&type=multiple")
-.then(res => console.log(res))
-.catch(err => console.error(err))
+axios
+  .get(
+    "https://opentdb.com/api.php?amount=10&category=9&difficulty=easy&type=multiple"
+  )
+  .then((res) => {
+      const questions = res.data.results
+  })
+  .catch((err) => console.error(err));
+  console.log(questions)
 /* ESTRUCTURA BASE DE DATOS 
 res.data.results = sale la estructura de las preguntas
 res.data.results[i].question = pregunta
@@ -20,32 +26,32 @@ const answerButtonsElement = document.getElementById("answer-buttons");
 
 /* AÑADO CLASS LIST */
 const removePages = () => {
-    home.classList.add("hide")
-    stats.classList.add("hide")
-    quiz.classList.add("hide")
-}
+  home.classList.add("hide");
+  stats.classList.add("hide");
+  quiz.classList.add("hide");
+};
 const goQuiz = () => {
-    removePages()
-    quiz.classList.remove("hide")
-}
+  removePages();
+  quiz.classList.remove("hide");
+};
 
 const goHome = () => {
-    removePages()
-    home.classList.remove("hide")
-}
+  removePages();
+  home.classList.remove("hide");
+};
 const goStats = () => {
-    removePages()
-    stats.classList.remove("hide")
-}
+  removePages();
+  stats.classList.remove("hide");
+};
 
 /* VARIABLES */
 let currentQuestionIndex;
 /* FUNCTIONES */
 const startGame = () => {
-    startBtn.classList.add("hide")
-    currentQuestionIndex = 0;
-    questionContainer.classList.remove("hide")
-}
+  startBtn.classList.add("hide");
+  currentQuestionIndex = 0;
+  questionContainer.classList.remove("hide");
+};
 /*  PARA PODER HACER ESTE PASO DEBO DE SABER RECOGER LOS DATOS DE LA API  */
 /* const showQuestion = (question) => {
 questionContainer.innerText = question.question;
@@ -61,7 +67,7 @@ question.answers.forEach(answer => {
 } */
 
 /* ADD EVENT LISTENERS */
-quiz.addEventListener("click", goQuiz)
-home.addEventListener("click", goHome)
-stats.addEventListener("click", goStats)
-startBtn.addEventListener("click", startGame)
+quiz.addEventListener("click", goQuiz);
+home.addEventListener("click", goHome);
+stats.addEventListener("click", goStats);
+startBtn.addEventListener("click", startGame);
