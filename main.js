@@ -37,7 +37,31 @@ const goStats = () => {
     removePages()
     stats.classList.remove("hide")
 }
+
+/* VARIABLES */
+let currentQuestionIndex;
+/* FUNCTIONES */
+const startGame = () => {
+    startBtn.classList.add("hide")
+    currentQuestionIndex = 0;
+    questionContainer.classList.remove("hide")
+}
+/*  PARA PODER HACER ESTE PASO DEBO DE SABER RECOGER LOS DATOS DE LA API  */
+/* const showQuestion = (question) => {
+questionContainer.innerText = question.question;
+question.answers.forEach(answer => {
+    const button = document.createElement("button");
+    button.innerText = answer.text;
+    if(answer.correct){
+        button.dataset.correct = true;
+    }
+    answerButtonsElement.appendChild(button)
+
+});
+} */
+
 /* ADD EVENT LISTENERS */
 quiz.addEventListener("click", goQuiz)
 home.addEventListener("click", goHome)
 stats.addEventListener("click", goStats)
+startBtn.addEventListener("click", startGame)
