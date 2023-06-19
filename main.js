@@ -13,7 +13,6 @@ const answerButtonsElement = document.getElementById("answer-buttons");
 const API_URL =
   "https://opentdb.com/api.php?amount=10&category=9&difficulty=easy&type=multiple";
 let questions = [];
-let question = "";
 let currentQuestionIndex;
 
 /* AXIOS */
@@ -32,14 +31,13 @@ let currentQuestionIndex;
 //         ]
 //     }
 // ]
-const myFunct = async () => {
+const questionTransform = async () => {
   try {
-    const res = await axios.get(API_URL);
-    questions = res.data.results;
-    questionsFormated = questions.map((question) => {
+    const response = await axios.get(API_URL);
+    const questions = response.data.results;
+    const questionsFormatted = questions.map((question) => {
       const incorrectAnswers = question.incorrect_answers.map((text) => {
         return {
-          // text: text == text,
           text,
           correct: false,
         };
@@ -47,16 +45,53 @@ const myFunct = async () => {
       const correctAnswer = { text: question.correct_answer, correct: true };
       return {
         question: question.question,
-        answers: [...incorrectAnswers, correctAnswer].sort(function(){return Math.random()-0.5}),
+        answers: [...incorrectAnswers, correctAnswer].sort(() => Math.random() - 0.5),
       };
     });
-    console.log(questionsFormated);
-  } catch (err) {
-    console.error(err);
+    return questionsFormatted;
+  } catch (error) {
+    console.error(error);
+    throw error;
   }
 };
 
-myFunct();
+async function example() {
+  try {
+    const questionsFormatted = await questionTransform();
+    console.log(questionsFormatted);
+    showQuestion(questionsFormatted[0])
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+example();
+
+
+
+//setTimeout(()=> {showQuestion(questionsFormated[0])}, 1000)
+
+
+
+
+
+const showQuestion = (question) => {
+  console.log(question)
+  questionElement.innerHTML = question.question;
+  question.answers.forEach((answer) => {
+    const button = document.createElement("button");
+    button.innerText = answer.text;
+
+    if(answer.correct){
+      button.dataset.correct = true;
+    }
+    
+    answerButtonsElement.appendChild(button)
+  });
+
+};
+
+
 /* FUNCTIONS */
 const startGame = () => {
   startBtn.classList.add("hide");
