@@ -14,23 +14,8 @@ const API_URL =
   "https://opentdb.com/api.php?amount=10&category=9&difficulty=easy&type=multiple";
 let questions = [];
 let currentQuestionIndex;
-
-/* AXIOS */
-// const questions=[
-//     {
-//         question:"preguntaa?",
-//         answers:[
-//             {
-//                 text:"ey",
-//                 correct:true
-//             },
-//             {
-//                 text:"ey2",
-//                 correct:false
-//             }
-//         ]
-//     }
-// ]
+let questionsFormatted;
+/* FUNCTIONS */
 const questionTransform = async () => {
   try {
     const response = await axios.get(API_URL);
@@ -64,16 +49,9 @@ async function example() {
     console.error(error);
   }
 }
+/* AQUI NO SE QUE HE HECHO */
 
 example();
-
-
-
-//setTimeout(()=> {showQuestion(questionsFormated[0])}, 1000)
-
-
-
-
 
 const showQuestion = (question) => {
   console.log(question)
@@ -85,25 +63,23 @@ const showQuestion = (question) => {
     if(answer.correct){
       button.dataset.correct = true;
     }
-    
     answerButtonsElement.appendChild(button)
   });
 
 };
 
-
-/* FUNCTIONS */
 const startGame = () => {
   startBtn.classList.add("hide");
   currentQuestionIndex = 0;
   questionContainer.classList.remove("hide");
-
-  /* ESTRUCTURA BASE DE DATOS 
-res.data.results = sale la estructura de las preguntas
-res.data.results[i].question = pregunta
-res.data.results[i].correct_answer = respuesta correcta
-res.data.results[i].incorrect_answers = respuestas incorrectas*/
+  setNextQuestion()
 };
+
+/* NO ME FUNCIONA */
+
+const setNextQuestion = () => {
+  showQuestion(questionsFormatted[currentQuestionIndex])
+}
 /* AÑADO CLASS LIST */
 const removePages = () => {
   home.classList.add("hide");
@@ -123,19 +99,8 @@ const goStats = () => {
   removePages();
   stats.classList.remove("hide");
 };
-/*  PARA PODER HACER ESTE PASO DEBO DE SABER RECOGER LOS DATOS DE LA API  */
-/* const showQuestion = (question) => {
-questionContainer.innerText = question.question;
-question.answers.forEach(answer => {
-    const button = document.createElement("button");
-    button.innerText = answer.text;
-    if(answer.correct){
-        button.dataset.correct = true;
-    }
-    answerButtonsElement.appendChild(button)
 
-});
-} */
+
 
 /* ADD EVENT LISTENERS */
 quiz.addEventListener("click", goQuiz);
