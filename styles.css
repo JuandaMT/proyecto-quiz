@@ -7,7 +7,9 @@
   font-family: "Raleway", sans-serif;
 }
 body {
-  background-color: rgb(224, 222, 222);
+  background-color: rgb(252, 236, 201);
+  background-image: url(media/quiz.jpg);
+  background-size: contain;
 }
 .hide {
   display: none;
@@ -27,8 +29,8 @@ body {
   align-items: center;
   height: 1.5rem;
 }
-.nav >:hover{
-    color: white;
+.nav > :hover {
+  color: white;
 }
 
 #slash {
@@ -44,7 +46,7 @@ body {
   justify-content: space-evenly;
   align-items: center;
   border-radius: 8px;
-  border-bottom: 1px solid #00000046;
+  border-bottom: 2px solid #fdaf06;
 }
 /* VIÑETAS */
 .viñeta {
@@ -52,37 +54,29 @@ body {
   border-radius: 8px;
   padding: 5%;
   margin: 3%;
-  border-bottom: 1px solid #00000046;
+  box-shadow: 0px 3px 5px 0px rgb(180, 124, 2);
+  background-color: rgb(255, 226, 165);
 }
-.viñeta h1{
-    /* background-color: rgb(252, 178, 19); */
-    text-align: center;
-    margin: 0 auto;
-    margin-bottom: 10%;
-    background-color: rgb(255, 226, 165);
-    height: 100px;
-    width: 150px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow:2px 2px 5px 1px rgb(252, 172, 0);;
-    transition: width 2s, height 2s, transform 2s;
+
+.controls {
+  text-align: center;
+  margin-top: 5%;
 }
-.viñeta h1:hover{
-    transform: rotate(360deg);
+button {
+  background-color: white;
+  border-radius: 8px;
+  padding: 3%;
+  border: 1px;
+  margin: 3%;
 }
-.controls{
-    text-align: center;
-    margin-top: 5%;
+button:hover {
+  background-color: rgba(255, 166, 0, 0.425);
 }
-button{
-    background-color: white;
-    border-radius: 8px;
-    padding: 3%;
-    border: 1px;
-    margin: 3%;
-    
+.imagen{
+width: 90%;
+margin: 0 auto;
 }
-button:hover{
-    background-color: orange;
+.imagen img{
+    width: 100%;
+    max-height: 150px;
 }
