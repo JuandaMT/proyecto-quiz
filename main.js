@@ -13,7 +13,8 @@ const API_URL =
   "https://opentdb.com/api.php?amount=10&category=9&difficulty=easy&type=multiple";
 let questions = [];
 let currentQuestionIndex;
-let questionsFormatted=[];
+let questionsFormatted = [];
+let respuestasCorrectas = 0;
 
 /* FUNCTIONS */
 const questionTransform = async () => {
@@ -57,12 +58,12 @@ const showQuestion = (question) => {
   });
 };
 
-const resetState = () =>{
+const resetState = () => {
   nextBtn.classList.add("hide");
-  while(answerButtonsElement.firstChild){
-    answerButtonsElement.removeChild(answerButtonsElement.firstChild)
+  while (answerButtonsElement.firstChild) {
+    answerButtonsElement.removeChild(answerButtonsElement.firstChild);
   }
-}
+};
 
 const setNextQuestion = () => {
   resetState();
@@ -73,7 +74,7 @@ const startGame = () => {
   startBtn.classList.add("hide");
   currentQuestionIndex = 0;
   questionContainer.classList.remove("hide");
-  console.log(questionsFormatted)
+  console.log(questionsFormatted);
   setNextQuestion();
 };
 
@@ -84,14 +85,14 @@ const setStatusClass = (element) => {
     element.classList.add("wrong");
   }
 };
-function selectAnswer() {
+const selectAnswer = () => {
   Array.from(answerButtonsElement.children).forEach((button) => {
     setStatusClass(button);
   });
 
-  if (questionsFormatted.length !== currentQuestionIndex + 1) {
-    console.log("next",nextBtn)
+  if (questionsFormatted.length -8 > currentQuestionIndex + 1) {
     nextBtn.classList.remove("hide");
+    console.log(currentQuestionIndex)
   } else {
     startBtn.innerText = "Restart";
     startBtn.classList.remove("hide");
@@ -123,7 +124,7 @@ quiz.addEventListener("click", goQuiz);
 home.addEventListener("click", goHome);
 stats.addEventListener("click", goStats);
 startBtn.addEventListener("click", startGame);
-nextBtn.addEventListener("click",()=>{
-  currentQuestionIndex ++;
+nextBtn.addEventListener("click", () => {
+  currentQuestionIndex++;
   setNextQuestion();
-})
+});
