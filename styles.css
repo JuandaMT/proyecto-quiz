@@ -1,9 +1,88 @@
-.hide{
-    display: none;
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;400;500;600&display=swap");
+/* GENERAL */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Raleway", sans-serif;
+}
+body {
+  background-color: rgb(224, 222, 222);
+}
+.hide {
+  display: none;
 }
 .correct {
-    background-color: rgb(0, 255, 72);
+  background-color: rgb(111, 194, 134);
 }
-.wrong{
-    background-color: rgb(255, 0, 0);
+.wrong {
+  background-color: rgb(255, 165, 165);
+}
+
+/* NAV */
+.nav {
+  background-color: rgb(253, 174, 4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 1.5rem;
+}
+.nav >:hover{
+    color: white;
+}
+
+#slash {
+  color: white;
+}
+/* CONTAINER */
+.container {
+  background-color: white;
+  width: 80%;
+  margin: 0 auto;
+  margin-top: 5%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  border-radius: 8px;
+  border-bottom: 1px solid #00000046;
+}
+/* VIÑETAS */
+.viñeta {
+  background-color: rgb(253, 202, 91);
+  border-radius: 8px;
+  padding: 5%;
+  margin: 3%;
+  border-bottom: 1px solid #00000046;
+}
+.viñeta h1{
+    /* background-color: rgb(252, 178, 19); */
+    text-align: center;
+    margin: 0 auto;
+    margin-bottom: 10%;
+    background-color: rgb(255, 226, 165);
+    height: 100px;
+    width: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow:2px 2px 5px 1px rgb(252, 172, 0);;
+    transition: width 2s, height 2s, transform 2s;
+}
+.viñeta h1:hover{
+    transform: rotate(360deg);
+}
+.controls{
+    text-align: center;
+    margin-top: 5%;
+}
+button{
+    background-color: white;
+    border-radius: 8px;
+    padding: 3%;
+    border: 1px;
+    margin: 3%;
+    
+}
+button:hover{
+    background-color: orange;
 }

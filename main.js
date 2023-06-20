@@ -7,7 +7,8 @@ const nextBtn = document.getElementById("next-btn");
 const questionContainer = document.getElementById("question-container");
 const questionElement = document.getElementById("question");
 const answerButtonsElement = document.getElementById("answer-buttons");
-
+const quizNav = document.getElementById("quizNav");
+const statsNav = document.getElementById("statsNav")
 /* VARIABLES */
 const API_URL =
   "https://opentdb.com/api.php?amount=10&category=9&difficulty=easy&type=multiple";
@@ -101,7 +102,6 @@ const selectAnswer = () => {
 
 /* AÑADO CLASS LIST */
 const removePages = () => {
-  home.classList.add("hide");
   stats.classList.add("hide");
   quiz.classList.add("hide");
 };
@@ -110,10 +110,7 @@ const goQuiz = () => {
   quiz.classList.remove("hide");
 };
 
-const goHome = () => {
-  removePages();
-  home.classList.remove("hide");
-};
+
 const goStats = () => {
   removePages();
   stats.classList.remove("hide");
@@ -121,10 +118,11 @@ const goStats = () => {
 
 /* ADD EVENT LISTENERS */
 quiz.addEventListener("click", goQuiz);
-home.addEventListener("click", goHome);
 stats.addEventListener("click", goStats);
 startBtn.addEventListener("click", startGame);
 nextBtn.addEventListener("click", () => {
   currentQuestionIndex++;
   setNextQuestion();
 });
+quizNav.addEventListener("click", goQuiz);
+statsNav.addEventListener("click", goStats);

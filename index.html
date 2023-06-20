@@ -4,31 +4,32 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Quiz</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <!-- HOME -->
-    <div id="home">
-      <h1>Home</h1>
-    </div>
-    <!-- QUIZ -->
-    <div id="quiz">
-      <h1>Quiz</h1>
-      <div id="question-container" class="hide">
-        <div id="question">Question</div>
-        <div id="answer-buttons"></div>
+    <nav class="nav">
+      <span id="quizNav">QUIZ <span id="slash">/</span></span
+      ><span id="statsNav">STATS</span>
+    </nav>
+    <div class="container">
+      <!-- QUIZ -->
+      <div id="quiz" class="viñeta">
+        <h1>Quiz</h1>
+        <div id="question-container" class="hide">
+          <div id="question">Question</div>
+          <div id="answer-buttons"></div>
+        </div>
+        <div class="controls">
+          <button id="start-btn">Start</button>
+          <button id="next-btn" class="hide">Next</button>
+        </div>
       </div>
-      <div class="controls">
-        <button id="start-btn">Start</button>
-        <button id="next-btn" class="hide">Next</button>
+      <!-- STATS -->
+      <div id="stats" class="viñeta">
+        <h1>Stats</h1>
+        <button id="viewResults">Ver Resultados</button>
       </div>
     </div>
-    <!-- STATS -->
-    <div id="stats">
-      <h1>Stats</h1>
-      <button id="viewResults">Ver Resultados</button>
-    </div>
-
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="main.js"></script>
   </body>
