@@ -64,7 +64,7 @@ const selectAnswer = () => {
     setStatusClass(button);
   });
 
-  if (questionsFormatted.length - 8 > currentQuestionIndex + 1) {
+  if (questionsFormatted.length > currentQuestionIndex + 1) {
     nextBtn.classList.remove("hide");
   } else {
     startBtn.innerText = "Restart";
