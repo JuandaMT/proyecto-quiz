@@ -15,7 +15,7 @@
       <!-- QUIZ -->
       <div id="quiz" class="viñeta">
         <div class="imagen">
-          <img src="media/quiz.jpg" alt="">
+          <img src="media/quiz.jpg" alt="" />
         </div>
         <div id="question-container" class="hide">
           <div id="question">Question</div>
@@ -24,14 +24,19 @@
         <div class="controls">
           <button id="start-btn">Start</button>
           <button id="next-btn" class="hide">Next</button>
+          <button id="myResult" class="hide">Mi resultado</button>
         </div>
       </div>
       <!-- STATS -->
-      <div id="stats" class="viñeta">
-        <div class="imagen">
-          <img src="media/resultados.webp" alt="">
+      <div class="puntuacionDiv" id="stats">
+        <div class="card">
+          <div class="first-content">
+            <span id="tuResultadoEs">Tu resultado es...</span>
+          </div>
+          <div class="second-content">
+            <span id="ponerResultado">0/10</span>
+          </div>
         </div>
-        <button id="viewResults">Ver Resultados</button>
       </div>
     </div>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>

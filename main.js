@@ -8,14 +8,19 @@ const questionContainer = document.getElementById("question-container");
 const questionElement = document.getElementById("question");
 const answerButtonsElement = document.getElementById("answer-buttons");
 const quizNav = document.getElementById("quizNav");
-const statsNav = document.getElementById("statsNav")
+const statsNav = document.getElementById("statsNav");
+const btnMyResult = document.getElementById("myResult");
+const tuResultadoEs = document.getElementById("tuResultadoEs");
+const ponerResultado = document.getElementById("ponerResultado");
+
 /* VARIABLES */
 const API_URL =
-  "https://opentdb.com/api.php?amount=10&category=9&difficulty=easy&type=multiple";
+"https://opentdb.com/api.php?amount=10&category=9&difficulty=easy&type=multiple";
 let questions = [];
 let currentQuestionIndex;
 let questionsFormatted = [];
 let respuestasCorrectas = 0;
+let puntuacion = 0;
 
 /* FUNCTIONS */
 const questionTransform = async () => {
@@ -45,6 +50,29 @@ const questionTransform = async () => {
 };
 questionTransform();
 
+const setStatusClass = (element) => {
+  if (element.dataset.correct) {
+    element.classList.add("correct");
+  } else {
+    element.classList.add("wrong");
+  }
+  element.disabled = true
+};
+
+const selectAnswer = () => {
+  Array.from(answerButtonsElement.children).forEach((button) => {
+    setStatusClass(button);
+  });
+
+  if (questionsFormatted.length - 8 > currentQuestionIndex + 1) {
+    nextBtn.classList.remove("hide");
+  } else {
+    startBtn.innerText = "Restart";
+    startBtn.classList.remove("hide");
+    btnMyResult.classList.remove("hide");
+  }
+};
+
 const showQuestion = (question) => {
   questionElement.innerHTML = question.question;
   question.answers.forEach((answer) => {
@@ -54,7 +82,15 @@ const showQuestion = (question) => {
     if (answer.correct) {
       button.dataset.correct = true;
     }
-    button.addEventListener("click", selectAnswer);
+    button.addEventListener("click", ()=>{
+      console.log(button.dataset.correct)
+      if(button.dataset.correct){
+        puntuacion++
+        console.log("Tu puntuación es: ",puntuacion)
+        ponerResultado.innerHTML = `${puntuacion}/10`
+      }
+      selectAnswer()
+     });
     answerButtonsElement.appendChild(button);
   });
 };
@@ -73,32 +109,12 @@ const setNextQuestion = () => {
 
 const startGame = () => {
   startBtn.classList.add("hide");
+  btnMyResult.classList.add("hide");
   currentQuestionIndex = 0;
   questionContainer.classList.remove("hide");
   console.log(questionsFormatted);
   setNextQuestion();
 };
-
-const setStatusClass = (element) => {
-  if (element.dataset.correct) {
-    element.classList.add("correct");
-  } else {
-    element.classList.add("wrong");
-  }
-};
-const selectAnswer = () => {
-  Array.from(answerButtonsElement.children).forEach((button) => {
-    setStatusClass(button);
-  });
-
-  if (questionsFormatted.length -8 > currentQuestionIndex + 1) {
-    nextBtn.classList.remove("hide");
-    console.log(currentQuestionIndex)
-  } else {
-    startBtn.innerText = "Restart";
-    startBtn.classList.remove("hide");
-  }
-}
 
 /* AÑADO CLASS LIST */
 const removePages = () => {
@@ -109,11 +125,12 @@ const goQuiz = () => {
   removePages();
   quiz.classList.remove("hide");
 };
-
-
 const goStats = () => {
+  console.log("ey")
   removePages();
-  stats.classList.remove("hide");
+  stats.style ="display:block;"
+  quiz.style ="display:none;"
+  console.log(stats)
 };
 
 /* ADD EVENT LISTENERS */
@@ -126,3 +143,4 @@ nextBtn.addEventListener("click", () => {
 });
 quizNav.addEventListener("click", goQuiz);
 statsNav.addEventListener("click", goStats);
+btnMyResult.addEventListener("click", goStats);
