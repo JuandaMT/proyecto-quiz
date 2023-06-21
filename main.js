@@ -10,17 +10,16 @@ const answerButtonsElement = document.getElementById("answer-buttons");
 const quizNav = document.getElementById("quizNav");
 const statsNav = document.getElementById("statsNav");
 const btnMyResult = document.getElementById("myResult");
-const tuResultadoEs = document.getElementById("tuResultadoEs");
-const ponerResultado = document.getElementById("ponerResultado");
+const showResult = document.getElementById("showResult");
 
 /* VARIABLES */
 const API_URL =
-"https://opentdb.com/api.php?amount=10&category=9&difficulty=easy&type=multiple";
+  "https://opentdb.com/api.php?amount=10&category=9&difficulty=easy&type=multiple";
 let questions = [];
 let currentQuestionIndex;
 let questionsFormatted = [];
 let respuestasCorrectas = 0;
-let puntuacion = 0;
+let score = 0;
 
 /* FUNCTIONS */
 const questionTransform = async () => {
@@ -56,7 +55,7 @@ const setStatusClass = (element) => {
   } else {
     element.classList.add("wrong");
   }
-  element.disabled = true
+  element.disabled = true;
 };
 
 const selectAnswer = () => {
@@ -82,15 +81,14 @@ const showQuestion = (question) => {
     if (answer.correct) {
       button.dataset.correct = true;
     }
-    button.addEventListener("click", ()=>{
-      console.log(button.dataset.correct)
-      if(button.dataset.correct){
-        puntuacion++
-        console.log("Tu puntuación es: ",puntuacion)
-        ponerResultado.innerHTML = `${puntuacion}/10`
+    button.addEventListener("click", () => {
+      console.log(button.dataset.correct);
+      if (button.dataset.correct) {
+        score++;
+        showResult.innerHTML = `YOU GET ${score}/10`;
       }
-      selectAnswer()
-     });
+      selectAnswer();
+    });
     answerButtonsElement.appendChild(button);
   });
 };
@@ -126,11 +124,11 @@ const goQuiz = () => {
   quiz.classList.remove("hide");
 };
 const goStats = () => {
-  console.log("ey")
+  console.log("ey");
   removePages();
-  stats.style ="display:block;"
-  quiz.style ="display:none;"
-  console.log(stats)
+  stats.style = "display:block;";
+  quiz.style = "display:none;";
+  console.log(stats);
 };
 
 /* ADD EVENT LISTENERS */

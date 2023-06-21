@@ -13,10 +13,11 @@
     </nav>
     <div class="container">
       <!-- QUIZ -->
-      <div id="quiz" class="viñeta">
+      <div id="quiz" class="bullet">
         <div class="imagen">
-          <img src="media/quiz.jpg" alt="" />
+          <img src="media/gifNiño.gif" alt="" />
         </div>
+        <div class="text">READY 4 THE QUIZ?</div>
         <div id="question-container" class="hide">
           <div id="question">Question</div>
           <div id="answer-buttons"></div>
@@ -24,17 +25,22 @@
         <div class="controls">
           <button id="start-btn">Start</button>
           <button id="next-btn" class="hide">Next</button>
-          <button id="myResult" class="hide">Mi resultado</button>
+          <button id="myResult" class="hide">My score</button>
         </div>
       </div>
       <!-- STATS -->
-      <div class="puntuacionDiv" id="stats">
+      <div class="scoreDiv hide" id="stats">
         <div class="card">
           <div class="first-content">
-            <span id="tuResultadoEs">Tu resultado es...</span>
+            <span id="yourResult">
+              <img id="click" src="media/click.gif" alt="" />
+            </span>
           </div>
           <div class="second-content">
-            <span id="ponerResultado">0/10</span>
+            <span id="showResult"
+              >YOU GET 0/10... <br />
+              KEEP PRACTICING</span
+            >
           </div>
         </div>
       </div>
