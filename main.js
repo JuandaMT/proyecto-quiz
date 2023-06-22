@@ -1,4 +1,3 @@
-/* ME TRAIGO EL HTML A JS */
 const home = document.getElementById("home");
 const quiz = document.getElementById("quiz");
 const stats = document.getElementById("stats");
@@ -12,7 +11,6 @@ const statsNav = document.getElementById("statsNav");
 const btnMyResult = document.getElementById("myResult");
 const showResult = document.getElementById("showResult");
 
-/* VARIABLES */
 const API_URL =
   "https://opentdb.com/api.php?amount=10&category=9&difficulty=easy&type=multiple";
 let questions = [];
@@ -21,7 +19,6 @@ let questionsFormatted = [];
 let respuestasCorrectas = 0;
 let score = 0;
 
-/* FUNCTIONS */
 const questionTransform = async () => {
   try {
     const response = await axios.get(API_URL);
@@ -114,7 +111,6 @@ const startGame = () => {
   setNextQuestion();
 };
 
-/* AÑADO CLASS LIST */
 const removePages = () => {
   stats.classList.add("hide");
   quiz.classList.add("hide");
@@ -131,7 +127,6 @@ const goStats = () => {
   console.log(stats);
 };
 
-/* ADD EVENT LISTENERS */
 quiz.addEventListener("click", goQuiz);
 stats.addEventListener("click", goStats);
 startBtn.addEventListener("click", startGame);

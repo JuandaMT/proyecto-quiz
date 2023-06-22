@@ -1,5 +1,4 @@
 @import url("https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;400;500;600&display=swap");
-/* GENERAL */
 * {
   margin: 0;
   padding: 0;
@@ -20,7 +19,6 @@ body {
   background-color: rgb(255, 165, 165);
 }
 
-/* NAV */
 .nav {
   background-color: rgb(253, 174, 4);
   display: flex;
@@ -38,7 +36,6 @@ body {
 #slash {
   color: white;
 }
-/* CONTAINER */
 .container {
   margin-top: 7%;
   display: flex;
@@ -46,7 +43,6 @@ body {
   align-items: center;
   border-radius: 8px;
 }
-/* VIÑETAS */
 .bullet {
   width: 70%;
   border-radius: 8px;
@@ -174,7 +170,6 @@ button:active {
 button {
   margin: 1%;
 }
-/* MEDIA QUERIS */
 @media only screen and (min-width: 550px) {
   .bullet {
     width: 50%;
