@@ -1,16 +1,20 @@
 
-# PROYECTO QUIZ
+# QUIZ PROYECT
 
-Se trata de un pequeño y divertido juego tipo quiz. En este proyecto se pone en práctica lo aprendido acerca de SPA, APIs, HTML y CSS.
+This is a fun little quiz game. In this project we put into practice what we have learned about SPA, APIs, HTML and CSS.
 
-El proyecto cuenta con llamadas axios para obtener las preguntas a través de llamadas a la API. Cuenta con un botón de inicio para empezar el juego, cada vez que este se pulsa se realiza una llamada que devuelve 10 preguntas de conocimiento general diferentes. 
+The project has axios calls to get the questions through API calls. It has a start button to start the game, every time this button is pressed a call is made that returns 10 different general knowledge questions. 
 
-Al terminar de responder las preguntas podrás elegir entre volver a intentarlo o conocer el resultado de tu partida.
+When you finish answering the questions you can choose between retrying or knowing the result of your game.
+
+Translated with www.DeepL.com/Translator (free version)
+
+## FUTURE
+In the future I want to improve the navbar to be more usefull. Also want to add few changes as adding music or another views
 
 
 
-
-## CONOCIMIENTOS
+## TECHNOLOGIES
 
  - HTML
  - CSS
